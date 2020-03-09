@@ -1,0 +1,333 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>下载</title>
+<!-- Bootstrap -->
+<link href="./css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="./css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/web/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<!-- Owl Carousel Assets -->
+<link href="./css/owl.carousel.css" rel="stylesheet">
+<style type="text/css">
+body,td,th {
+	font-family: "roboto_condensedregular";
+}
+</style>
+<script src="./js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+<meta charset="UTF-8">
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="./images/logo1.fw.png" alt=""/></a>
+		</div>
+		<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="index.html">首页</a></li>
+			<li ><a href="about.html">简介</a></li>
+			<li ><a href="feature.html">研究领域</a></li>
+			<li><a href="javascript:void(0)">团队成员</a>
+			<ul class="sub-menu list-unstyled">
+				<li><a href="xupeng.html">许鹏教授</a></li>
+				<li><a href="linzhongping.html">林忠平教授</a></li>
+				<li><a href="panyiqun.html">潘毅群教授</a></li>
+                
+                <li><a href="zhouyan.html">周燕</a></li>
+                <li><a href="shijianguo.html">史建国</a></li>
+                
+                <li><a href="yangjianrong.html">杨建荣</a></li>  
+                <li><a href="caidandan.html">蔡丹丹</a></li>
+			</ul>
+			</li>
+			<li><a href="javascript:void(0)">实验中心</a>
+            <ul class="sub-menu list-unstyled">
+                <li><a href="lab.html">雾霾实验室简介</a></li>
+				<li><a href="＃">仪器与设备</a>
+                
+                <ul class="list-unstyled">
+						<li><a href="Equipment1.html">鼓风门测试仪器</a></li>
+						<li><a href="Equipment2.html">示踪气体测试仪器</a></li>
+						<li><a href="Equipment3.html">PM2.5监控设备</a></li>
+					</ul>
+                </li>             
+                            
+			</ul>
+            </li>
+			<li class="activate"><a href="javascript:void(0)">资料下载</a>
+             <ul class="sub-menu list-unstyled">
+						<li><a href="download1.html">PM2.5健康资料</a></li>
+						<li><a href="download2.html">PM2.5空气过滤器资料</a></li>
+						<li><a href="download3.html">楼宇气密性研究资料</a></li>
+                        <li><a href="download4.html">室内外雾霾传递机理资料</a></li>
+                        <li><a href="download5.html">防雾霾建筑改造技术规程</a></li>
+					</ul></li>
+			<li><a href="javascript:void(0)">联系我们</a></li>
+		</ul>
+		</nav>
+		<script src="./js/menu.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="main_grid1">
+		<h3 class="style pull-left">资料下载</h3>
+		<ol class="breadcrumb pull-right">
+		  <li><a href="index.html">首页</a></li>
+		  <li class="active">资料下载</li>
+		</ol>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="main about span_of_3">
+		<h3>PM2.5过滤器资料</h3>
+		<p class="para">空气过滤器的定义<br>
+维基百科（Weikipedia）将空气过滤器（Air filter）定义为一种由纤维材料构成的用去除去空气中所含有的固态颗粒物（如花粉、灰尘、霉菌和细菌等）的装置。空气过滤器在建筑物通风净化领域的应用十分广泛。</p>
+		<p class="para">空气过滤器的分类<br>
+常见的对空气过滤器主要按照过滤效率和材质两个方面进行分类。按材质分类：目前常见的空气过滤器包括PTFE过滤器、玻璃纤维过滤器、静电过滤器、纳米活性炭纤维过滤器、二氧化钛光催化过滤器等，这些过滤器之间的区别在于它们的除尘原理是不同的。按过滤效率分类：各国过滤器分级标准并不相同，其中欧洲标准EN779：2002对粒径小于等于0.4μm的颗粒物进行过滤效率测试，将一般通风用过滤器分为G1-F9等9个级别，其过滤效率依次递增。我国国家标准GB/T 14295-2008《空气过滤器》将空气过滤器分为粗效过滤器、中效过滤器、高中效过滤器、亚高效过滤器以及高效过滤器等五个级别，选用不同的过滤器可以获得对不同粒径的颗粒物的过滤效果。</p>
+		<p class="para"> 空气过滤器的评价指标	    <br>
+		  针对不同类型的空气过滤器，通常人们会从效率、阻力、面速和滤速、容尘量等五个方面对其进行评价，这些指标与过滤器的滤料和结构特性有着很大关系。
+		  阻力包括滤料阻力和结构阻力。颗粒物在穿过过滤器滤网时势必会受到阻力作用，我们将刚投入使用尚没有积尘的过滤器阻力称为初阻力；随着过滤器的使用其滤网上粘附的颗粒物将不断增多，阻力也随之增加，当过滤器过滤效率不足需要更换时过滤器的阻力称为终阻力。通常终阻力为初阻力的两倍左右。过滤器阻力是个非常重要的评价指标，过高的阻力意味着风机需要提供较大的压头，同时也带来了较高的噪声和能耗。但阻力过低，往往也代表着过滤器效率不高，无法有效对室外空气起到过滤效果。
+		  面速、滤速: 面速是过滤器断面上气流速度，反映了过滤器安装面积和通过能力。滤速是滤料面积上通过的气流速度，它能反映滤料过滤性能和通过能力。
+		  容尘量: 在额定风量下，过滤器的阻力达到终阻力时，其所容纳的尘粒总质量称为该过滤器的容尘量。	    </p>
+		<p class="para">针对PM2.5的过滤器	    <br>
+		  随着国内雾霾天气的不断增多，在建筑内设置加装空气过滤器的空调通风系统成为了室内防雾霾的有效手段之一。
+		  那么什么样的空气过滤器可以有效抵抗过滤PM2.5呢？常见的做法是在新风引入口加装粗效过滤器，比如G4过滤器，目的是初步过滤粒径较大大的颗粒等，然后在送风口加装亚高效或高效过滤器（High efficiency particulate air filter，HEPA），比如G7和H11等，目的是为了过滤PM2.5等细颗粒物。这种组合式的空气过滤器可以有效过滤包括PM2.5在内的绝大多数颗粒物。有学者通过实验检测和理论计算发现G4+F7的组合式空气过滤器对PM2.5的过滤效率达到了71.8%，而G4+F8的组合式空气过滤器效率则高达85.7%。按照我国标准如果以室外PM2.5浓度严重超标达3倍，也即225μg/m3（24h值）为例，不考虑室内有严重的污染源，若采用G4+F8的组合式空气过滤器可以使得室内PM2.5浓度削减到32.175μg/m3的程度，完全达到现行的健康标准。
+		  国外也对通风空调系统中亚高效过滤器对PM2.5的过滤效率进行了大量的研究。美国纽约州的学者对使用压高效过滤器的32户家庭的研究表明，约85%的家庭中颗粒物浓度明显降低,空气过滤器对粒径小于等于0.4μm的颗粒物总体效率约为73%。
+	    值得注意的是，采用亚高效过滤器或者高效过滤器不仅会造成空调通风系统初投资增大，同时也提高了系统风机需要的压头，带来了噪声和运行能耗的增加。除此之外，高效过滤器的清洗更换与寿命也需要业主的统筹规划、认真考虑。 </p>
+          <ul >
+			<li><a href="doc/2/1EN779中文版.pdf">资料一：欧洲标准  EN779：2002 一般通风用空气过滤器过滤性能的测定（中文版）</a></li>
+				<li><a href="doc/2/2公共建筑室内PM2.5污染控制策略研究_曹国庆.pdf">资料二：公共建筑室内 PM2. 5 污染控制策略研究（中文核心）</a></li>
+				<li><a href="doc/2/3国内外通风用空气过滤器的测试_分级及比照_涂有.pdf">资料三：国内外通风用空气过滤器的测试、分级及比照（中文核心）</a></li>
+                <li><a href="doc/2/4空气过滤器的分类及特性指标_于腾.pdf">资料四：空气过滤器的分类及特性指标（中文核心）</a></li>
+                <li><a href="doc/2/5北京室内外PM2.5污染状况及过滤器效率调研_赵力.pdf">资料五：北京室内外PM2.5污染状况及过滤器效率调研（中文核心）</a></li>
+                <li><a href="doc/2/6粒状活性碳过滤器与活性碳纤维过滤器的性能比较_赵丽宁.pdf">资料六：粒状活性碳过滤器与活性碳纤维过滤器的性能比较（中文核心）</a></li>
+                <li><a href="doc/2/7微纳米木丝粉组构PM2.5过滤器的机制_杨春梅.pdf">资料七：微纳米木丝粉组构PM2.5过滤器的机制（中文核心）</a></li>
+                <li><a href="doc/2/8一般通风用空气过滤器的PM2.5效率探究_张万毅.pdf">资料八：一般通风用空气过滤器的PM2.5效率探究（中文核心）</a></li>
+                <li><a href="doc/2/9驻极体空气过滤器对办公环境PM2.5的净化效果_水甜甜.pdf">资料九：驻极体空气过滤器对办公环境PM2.5的净化效果（中文核心）</a></li>
+			</ul>
+        
+<p class="para">&nbsp;</p>
+<div class="clearfix"></div>
+	</div>
+	
+</div>
+</div>
+<div class="footer_bg"><!-- start footer -->
+<div class="container">
+	<div class="footer">
+		<div class="col-md-4 footer1_of_3">
+			<div class="f_logo">
+				<a href="index.html"><img src="images/logo1.fw.png" alt=""/></a>
+			</div>		
+			
+		  <p>地址:&nbsp;<span class="">上海市嘉定区曹安公路4800号<br>
+	      同济大学嘉定校区开物馆A434</span></p>
+			<span class="">邮箱:&nbsp;<a href="mailto:xupeng@tongji.edu.cn">xupeng@tongji.edu.cn</a></span>
+		</div>
+		<div class="col-md-2 footer1_of_3">
+			<h4>校内链接</h4>
+			<ul class="list-unstyled f_list">
+				<li><a href="http://www.tongji.edu.cn">同济大学</a></li>
+				<li><a href="http://mefaculty.tongji.edu.cn">同济大学机械与能源工程学院</a></li>
+				<li><a href="http://a434.tongji.edu.cn">许鹏教授课题组</a></li>
+				<li><a href="http://buildingenergy.tongji.edu.cn">同济能源学术日</a></li>
+			</ul>
+		</div>
+		<div class="col-md-2 footer1_of_3">
+			<h4>外部链接</h4>
+			<ul class="list-unstyled f_list">
+				<li><a href="https://www.ashrae.org">ASHRAE</a></li>
+				<li><a href="http://www.gbppchina.com">GBPP</a></li>
+				
+			</ul>
+		</div>
+		<div class="col-md-4 footer_of_3">
+			<h4>微信公众号</h4>
+			<div class="blog_list">
+				<div class="col-md-3 f_pic">
+					<a href="javascript:void(0)"><img src="images/0.5m.jpg" alt="" class="img-responsive"/></a>	
+				</div>
+				<div class="col-md-9 f_text">
+					<a href="javascript:void(0)"><p>扫描二维码加入微信公众号</p></a>
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			
+		</div>
+				<div class="clearfix"></div>
+			</div>
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+			<p class="link"><span>&#169; All rights reserved </span></p>
+		</div>
+		<div class="soc_icons pull-right">
+			<ul class="list-unstyled text-center">
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-rss"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+</body>
+</html>
